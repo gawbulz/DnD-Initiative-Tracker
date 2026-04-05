@@ -7,16 +7,30 @@ window.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('div');
     card.className = 'row-card';
 
+    const initiativeInput = document.createElement('input');
+    initiativeInput.type = 'number';
+    initiativeInput.placeholder = '00';
+    initiativeInput.name = 'initiative';
+    initiativeInput.min = '0';
+    initiativeInput.max = '99';
+    initiativeInput.inputMode = 'numeric';
+    initiativeInput.pattern = '[0-9]*';
+    initiativeInput.addEventListener('input', () => {
+      let value = initiativeInput.value.replace(/\D/g, '');
+      if (value.length > 2) value = value.slice(0, 2);
+      initiativeInput.value = value;
+    });
+
     const textInput = document.createElement('input');
     textInput.type = 'text';
-    textInput.placeholder = 'Enter label...';
+    textInput.placeholder = 'Enter name...';
     textInput.name = 'label';
 
     const toggle = document.createElement('input');
     toggle.type = 'checkbox';
     toggle.className = 'switch';
 
-    card.append(textInput, toggle);
+    card.append(textInput, initiativeInput, toggle);
     return card;
   }
 

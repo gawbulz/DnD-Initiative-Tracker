@@ -63,15 +63,41 @@ button:hover {
   min-height: 0;
   overflow-y: auto;
 }
+.rows-heading {
+  display: grid;
+  grid-template-columns: 1fr 72px 52px;
+  gap: 8px;
+  align-items: center;
+  justify-items: start;
+  margin-bottom: 10px;
+  padding: 0 14px;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.rows-heading span:last-child {
+  opacity: 0;
+}
 .row-card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 72px 52px;
   gap: 8px;
   align-items: center;
   padding: 8px 14px;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   background: #f8fafc;
+}
+.row-card input[type="number"] {
+  width: 72px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: rgb(182, 182, 182);
+  color: #0f172a;
+  font-size: 0.95rem;
+  text-align: center;
 }
 .row-card input[type="text"] {
   width: 100%;
