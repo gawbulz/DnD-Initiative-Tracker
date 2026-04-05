@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   const rowsContainer = document.getElementById('rows');
   const addRowButton = document.getElementById('add-row');
+  const sortRowsButton = document.getElementById('sort-rows');
   const resetRowsButton = document.getElementById('reset-rows');
 
   function buildRow() {
@@ -46,7 +47,20 @@ window.addEventListener('DOMContentLoaded', () => {
     rowsContainer.scrollTop = 0;
   }
 
+  function sortRows() {
+    const rows = Array.from(rowsContainer.children);
+    rows.sort((a, b) => {
+      const aValue = Number(a.querySelector('input[name="initiative"]').value || 0);
+      const bValue = Number(b.querySelector('input[name="initiative"]').value || 0);
+      return bValue - aValue;
+    });
+    rows.forEach(row => rowsContainer.appendChild(row));
+  }
+
   addRowButton.addEventListener('click', addRow);
+  if (sortRowsButton) {
+    sortRowsButton.addEventListener('click', sortRows);
+  }
   if (resetRowsButton) {
     resetRowsButton.addEventListener('click', resetRows);
   }
