@@ -31,7 +31,15 @@ window.addEventListener('DOMContentLoaded', () => {
     toggle.type = 'checkbox';
     toggle.className = 'switch';
 
-    card.append(textInput, initiativeInput, toggle);
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.className = 'delete-button';
+    deleteButton.textContent = '×';
+    deleteButton.addEventListener('click', () => {
+      rowsContainer.removeChild(card);
+    });
+
+    card.append(textInput, initiativeInput, toggle, deleteButton);
     return card;
   }
 

@@ -65,7 +65,7 @@ button:hover {
 }
 .rows-heading {
   display: grid;
-  grid-template-columns: 1fr 72px 52px;
+  grid-template-columns: 1fr 72px 52px 40px;
   gap: 8px;
   align-items: center;
   justify-items: start;
@@ -76,13 +76,13 @@ button:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.rows-heading span:last-child {
+.rows-heading span:nth-child(n+3) {
   opacity: 0;
 }
 .row-card {
   display: grid;
-  grid-template-columns: 1fr 72px 52px;
-  gap: 8px;
+  grid-template-columns: 1fr 72px 52px 40px;
+  gap: 12px;
   align-items: center;
   padding: 8px 14px;
   border: 1px solid #e2e8f0;
@@ -135,6 +135,24 @@ button:hover {
 }
 .switch:checked::before {
   transform: translateX(24px);
+}
+.delete-button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 999px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 15px;
+}
+.delete-button:hover {
+  background: #dc2626;
 }
 .footer {
   position: fixed;
